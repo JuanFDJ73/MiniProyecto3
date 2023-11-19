@@ -74,7 +74,7 @@ public class StartWindow extends javax.swing.JFrame {
         });
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jButton4.setText("A");
+        jButton4.setText("Eliminar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -146,8 +146,8 @@ public class StartWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addComponent(jButton3)
                         .addGap(51, 51, 51)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92))
+                        .addComponent(jButton4)
+                        .addGap(48, 48, 48))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,7 +219,7 @@ public class StartWindow extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         
-        a wea = new a();
+        DeleteWindow wea = new DeleteWindow();
         
         wea.setVisible(true);
         
