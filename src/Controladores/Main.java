@@ -4,12 +4,20 @@
  */
 package Controladores;
 
-import Vista.VentanaInicio;
+import javax.swing.JFrame;
+import Vista.StartWindow;  
+
 
 public class Main {
+
     public static void main(String[] args) {
-        VentanaInicio inicio = new VentanaInicio();
-        
+        // Crear una instancia del JFrame StartWindow
+        StartWindow startWindow = new StartWindow();
+
+        // Configurar la operación al cerrar la ventana
+        startWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Hacer visible la ventana
+        startWindow.setVisible(true);
     }
 }
-

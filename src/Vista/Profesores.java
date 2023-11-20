@@ -1,18 +1,50 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package Vista;
 
-/**
- *
- * @author Usuario
- */
+import Modelos.ContactsList;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import Modelos.ContactsList;
+
+
+
 public class Profesores extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Porfesores
-     */
+    public void mostrarContactos(ContactsList contactsList) {
+      
+        // Agregar algunos datos de prueba
+        contactsList.agregarContacto("Profesor 1");
+        contactsList.agregarContacto("Profesor 2");
+        contactsList.agregarContacto("Profesor 3");
+        
+        // Obtener la lista de contactos y mostrarla en tu JPanel
+        List<String> contactos = contactsList.getContactos();
+        
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        
+        // Agregar los contactos al modelo de lista
+        for (String contacto : contactos) {
+            listModel.addElement(contacto);
+        }
+        
+        // Crear un JList con el modelo de lista
+        JList<String> contactosJList = new JList<>(listModel);
+
+        // Agregar el JList al panel
+        add(new JScrollPane(contactosJList));
+        
+        // Actualizar la vista
+        revalidate();
+        repaint();
+        
+        
+        for (String contacto : contactos) {
+            System.out.println(contacto);
+        }
+    }
+    
     public Profesores() {
         initComponents();
     }
@@ -26,7 +58,6 @@ public class Profesores extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(255, 204, 255));
         setForeground(new java.awt.Color(255, 204, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
