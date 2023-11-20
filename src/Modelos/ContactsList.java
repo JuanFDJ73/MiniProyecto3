@@ -7,12 +7,10 @@ package Modelos;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Usuario
- */
+
+
 public class ContactsList {
-         private List<String> contactos;
+         public List<String> contactos;
 
     public ContactsList() {
         contactos = new ArrayList<>();
