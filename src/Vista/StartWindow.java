@@ -317,7 +317,7 @@ public class StartWindow extends javax.swing.JFrame {
     public javax.swing.JButton Editar;
     public javax.swing.JButton Eliminar;
     public javax.swing.JButton Profesores;
-    public javax.swing.JPanel Tabla;
+    private javax.swing.JPanel Tabla;
     public javax.swing.JButton Todos;
     public javax.swing.JButton Trabajadores;
     private javax.swing.JLabel jLabel1;

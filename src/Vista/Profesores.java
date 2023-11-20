@@ -1,23 +1,59 @@
 
 package Vista;
 
-import Modelos.ContactsList;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import Modelos.ContactsList;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
 
 
 
 public class Profesores extends javax.swing.JPanel {
+    
+
+    DefaultTableModel modelo=new DefaultTableModel();
+    
+    public void cargardatos(){
+    
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Dirección");
+        modelo.addColumn("Barrio");
+        modelo.addColumn("Ciudad");
+        modelo.addColumn("Numero");
+        modelo.addColumn("Tipo");
+        modelo.addColumn("Estamento");
+        modelo.addColumn("Dia");
+        modelo.addColumn("Mes");
+        modelo.addColumn("Año");
+        tabladatos.setModel(modelo);
+        
+        ArrayList<Object[]>info=new ArrayList<Object[]>();
+        
+        
+        Object[]dato1=new Object[]{"0","Juan","Duque","Cra3","El diamante","Cali","0000000000","Movil","Estudiante","10","Jul","2002"};
+        Object[]dato2=new Object[]{"1","Alejandro","Ceron","Cra4","Vergel","Pasto","33333333333","Movil","Trabajador","9","Mar","2004"};
+        Object[]dato3=new Object[]{"2","Charlotte","Garcia","Cra1","Caney","Medellin","2222222","Telefono","Profesor","2","Jun","2003"};
+        Object[]dato4=new Object[]{"3","Natalia","Silva","Cra2","Poblado","Cali","1111111111","Movil","Estudiante","8","Dic","2005"};
+
+        info.add(dato1);
+        info.add(dato2);
+        info.add(dato3);
+        info.add(dato4);
+        
+        for (Object []informacion : info){
+            modelo.addRow(informacion);
+        }
+        
+        tabladatos.setModel(modelo);
+    }
 
     public void mostrarContactos(ContactsList contactsList) {
-      
-        // Agregar algunos datos de prueba
-        contactsList.agregarContacto("Profesor 1");
-        contactsList.agregarContacto("Profesor 2");
-        contactsList.agregarContacto("Profesor 3");
+        
         
         // Obtener la lista de contactos y mostrarla en tu JPanel
         List<String> contactos = contactsList.getContactos();
@@ -47,6 +83,7 @@ public class Profesores extends javax.swing.JPanel {
     
     public Profesores() {
         initComponents();
+        cargardatos();
     }
 
     /**
@@ -58,21 +95,36 @@ public class Profesores extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabladatos = new javax.swing.JTable();
+
         setForeground(new java.awt.Color(255, 204, 255));
+
+        tabladatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabladatos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabladatos;
     // End of variables declaration//GEN-END:variables
 }
