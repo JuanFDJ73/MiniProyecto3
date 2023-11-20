@@ -57,7 +57,7 @@
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="AñadirNumero" alignment="0" pref="180" max="32767" attributes="0"/>
                           <Component id="AñadirNombre" alignment="0" max="32767" attributes="0"/>
-                          <Component id="AñadirBarrio" alignment="0" max="32767" attributes="0"/>
+                          <Component id="AñadirDireccion" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -67,10 +67,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="AñadirApellidos" min="-2" pref="214" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="EditTipo" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                          <Component id="AñadirTipo" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Component id="AñadirBarrio1" min="-2" pref="208" max="-2" attributes="0"/>
+                              <Component id="AñadirBarrio" min="-2" pref="208" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -86,7 +86,7 @@
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Component id="AñadirAño" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel14" alignment="0" max="32767" attributes="0"/>
-                              <Component id="EditEstamento" alignment="0" pref="165" max="32767" attributes="0"/>
+                              <Component id="AñadirEstamento" alignment="0" pref="165" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jLabel5" min="-2" pref="68" max="-2" attributes="0"/>
                       </Group>
@@ -161,8 +161,8 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="AñadirBarrio1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="AñadirBarrio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AñadirDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="AñadirCiudad" max="32767" attributes="0"/>
               </Group>
@@ -176,12 +176,10 @@
                   <Component id="jLabel11" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="EditEstamento" min="-2" pref="44" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="EditTipo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="AñadirNumero" alignment="3" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="AñadirTipo" alignment="3" max="32767" attributes="0"/>
+                  <Component id="AñadirNumero" alignment="3" max="32767" attributes="0"/>
+                  <Component id="AñadirEstamento" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -271,6 +269,9 @@
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="A&#xf1;adirApellidos">
       <Properties>
@@ -278,6 +279,9 @@
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="A&#xf1;adirID">
       <Properties>
@@ -285,6 +289,9 @@
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
@@ -316,6 +323,9 @@
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="A&#xf1;adirCiudad">
       <Properties>
@@ -323,6 +333,9 @@
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
@@ -348,7 +361,7 @@
         <Property name="text" type="java.lang.String" value="Estamento:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="EditTipo">
+    <Component class="javax.swing.JComboBox" name="A&#xf1;adirTipo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
@@ -363,9 +376,10 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="EditEstamento">
+    <Component class="javax.swing.JComboBox" name="A&#xf1;adirEstamento">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
@@ -380,6 +394,7 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
@@ -412,6 +427,9 @@
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="A&#xf1;adirMes">
       <Properties>
@@ -419,6 +437,9 @@
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="A&#xf1;adirA&#xf1;o">
       <Properties>
@@ -426,6 +447,9 @@
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel15">
       <Properties>
@@ -471,19 +495,25 @@
         <Property name="text" type="java.lang.String" value="*"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JTextField" name="A&#xf1;adirDireccion">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="24" style="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+    </Component>
     <Component class="javax.swing.JTextField" name="A&#xf1;adirBarrio">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="A&#xf1;adirBarrio1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="24" style="0"/>
-        </Property>
-      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -1,22 +1,20 @@
 
 package Vista;
 
-import java.util.List;
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-import javax.swing.JScrollPane;
-import Modelos.ContactsList;
+
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
-
-
+import Vista.EditWindow;
+import Modelos.ContactsList;
 
 public class Profesores extends javax.swing.JPanel {
     
-
+    ContactsList contacto = new ContactsList();
     DefaultTableModel modelo=new DefaultTableModel();
     
-    public void cargardatos(){
+    
+   
+    public void cargardatosProfesores(){
     
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
@@ -30,15 +28,15 @@ public class Profesores extends javax.swing.JPanel {
         modelo.addColumn("Dia");
         modelo.addColumn("Mes");
         modelo.addColumn("Año");
-        tabladatos.setModel(modelo);
+        tabladatosProfesores.setModel(modelo);
         
         ArrayList<Object[]>info=new ArrayList<Object[]>();
         
         
-        Object[]dato1=new Object[]{"0","Juan","Duque","Cra3","El diamante","Cali","0000000000","Movil","Estudiante","10","Jul","2002"};
-        Object[]dato2=new Object[]{"1","Alejandro","Ceron","Cra4","Vergel","Pasto","33333333333","Movil","Trabajador","9","Mar","2004"};
-        Object[]dato3=new Object[]{"2","Charlotte","Garcia","Cra1","Caney","Medellin","2222222","Telefono","Profesor","2","Jun","2003"};
-        Object[]dato4=new Object[]{"3","Natalia","Silva","Cra2","Poblado","Cali","1111111111","Movil","Estudiante","8","Dic","2005"};
+        Object[]dato1=new Object[]{"0","Juan","Duque","Cra 3","El diamante","Cali","0000000000","Movil","Estudiante","10","7","2002"};
+        Object[]dato2=new Object[]{"1","Alejandro","Ceron","Cra 4","Vergel","Pasto","33333333333","Movil","Trabajador","9","3","2004"};
+        Object[]dato3=new Object[]{"2","Charlotte","Garcia","Cra 1","Caney","Medellin","2222222","Telefono","Profesor","2","6","2003"};
+        Object[]dato4=new Object[]{"3","Natalia","Silva","Cra 2","Poblado","Cali","1111111111","Movil","Estudiante","8","12","2005"};
 
         info.add(dato1);
         info.add(dato2);
@@ -49,41 +47,12 @@ public class Profesores extends javax.swing.JPanel {
             modelo.addRow(informacion);
         }
         
-        tabladatos.setModel(modelo);
+        tabladatosProfesores.setModel(modelo);
     }
 
-    public void mostrarContactos(ContactsList contactsList) {
-        
-        
-        // Obtener la lista de contactos y mostrarla en tu JPanel
-        List<String> contactos = contactsList.getContactos();
-        
-        DefaultListModel<String> listModel = new DefaultListModel<>();
-        
-        // Agregar los contactos al modelo de lista
-        for (String contacto : contactos) {
-            listModel.addElement(contacto);
-        }
-        
-        // Crear un JList con el modelo de lista
-        JList<String> contactosJList = new JList<>(listModel);
-
-        // Agregar el JList al panel
-        add(new JScrollPane(contactosJList));
-        
-        // Actualizar la vista
-        revalidate();
-        repaint();
-        
-        
-        for (String contacto : contactos) {
-            System.out.println(contacto);
-        }
-    }
-    
     public Profesores() {
         initComponents();
-        cargardatos();
+        cargardatosProfesores();
     }
 
     /**
@@ -96,11 +65,11 @@ public class Profesores extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabladatos = new javax.swing.JTable();
+        tabladatosProfesores = new javax.swing.JTable();
 
         setForeground(new java.awt.Color(255, 204, 255));
 
-        tabladatos.setModel(new javax.swing.table.DefaultTableModel(
+        tabladatosProfesores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -108,7 +77,12 @@ public class Profesores extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tabladatos);
+        tabladatosProfesores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabladatosProfesoresMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabladatosProfesores);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -122,9 +96,32 @@ public class Profesores extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tabladatosProfesoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabladatosProfesoresMouseClicked
+        // TODO add your handling code here:
+        int seleccionar=tabladatosProfesores.rowAtPoint(evt.getPoint());
+        //EditWindow editWindow = new EditWindow();
+        
+        contacto.setNombre(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,1)));
+        //contacto.setApellidos(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,2)));
+        
+        String nombreContacto = contacto.getNombre();
+        //String apellidosContacto = contacto.getApellidos();
+        
+        System.out.println("Nombre: " + nombreContacto);
+        //System.out.println("Apellidos: " + apellidosContacto);
+        
+        /*
+        EditWindow.EditID.setText(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,0)));
+        EditWindow.EditNombre.setText(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,1)));
+        EditWindow.EditApellidos.setText(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,2)));
+        EditWindow.EditDireccion.setText(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,3)));
+
+        */
+    }//GEN-LAST:event_tabladatosProfesoresMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabladatos;
+    public javax.swing.JTable tabladatosProfesores;
     // End of variables declaration//GEN-END:variables
 }

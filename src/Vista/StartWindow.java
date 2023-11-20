@@ -229,7 +229,6 @@ public class StartWindow extends javax.swing.JFrame {
         p1.setSize(660,314);
         p1.setLocation(10,50);
         
-        p1.mostrarContactos(contactsList);
         
         Tabla.removeAll();
         Tabla.add(p1);

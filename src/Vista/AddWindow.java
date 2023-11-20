@@ -44,8 +44,8 @@ public class AddWindow extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        EditTipo = new javax.swing.JComboBox<>();
-        EditEstamento = new javax.swing.JComboBox<>();
+        AñadirTipo = new javax.swing.JComboBox<>();
+        AñadirEstamento = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -56,8 +56,8 @@ public class AddWindow extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        AñadirDireccion = new javax.swing.JTextField();
         AñadirBarrio = new javax.swing.JTextField();
-        AñadirBarrio1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,11 +116,11 @@ public class AddWindow extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel11.setText("Estamento:");
 
-        EditTipo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        EditTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celular", "Telefono", "Fax" }));
+        AñadirTipo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        AñadirTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celular", "Telefono", "Fax" }));
 
-        EditEstamento.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        EditEstamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trabajador", "Profesor", "Alumno" }));
+        AñadirEstamento.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        AñadirEstamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trabajador", "Profesor", "Alumno" }));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel12.setText("Día:");
@@ -153,9 +153,9 @@ public class AddWindow extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(255, 51, 51));
         jLabel18.setText("*");
 
-        AñadirBarrio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        AñadirDireccion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
-        AñadirBarrio1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        AñadirBarrio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,17 +188,17 @@ public class AddWindow extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(AñadirNumero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                             .addComponent(AñadirNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AñadirBarrio, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(AñadirDireccion, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(AñadirApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
-                            .addComponent(EditTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AñadirTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(AñadirBarrio1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(AñadirBarrio, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,7 +211,7 @@ public class AddWindow extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(AñadirAño, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(EditEstamento, javax.swing.GroupLayout.Alignment.LEADING, 0, 165, Short.MAX_VALUE))
+                                .addComponent(AñadirEstamento, javax.swing.GroupLayout.Alignment.LEADING, 0, 165, Short.MAX_VALUE))
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(86, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -267,8 +267,8 @@ public class AddWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(AñadirBarrio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(AñadirBarrio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(AñadirBarrio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AñadirDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(AñadirCiudad))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -278,11 +278,10 @@ public class AddWindow extends javax.swing.JFrame {
                         .addComponent(jLabel18))
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EditEstamento, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(EditTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(AñadirNumero)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AñadirTipo)
+                    .addComponent(AñadirNumero)
+                    .addComponent(AñadirEstamento))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
@@ -364,18 +363,18 @@ public class AddWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atrás;
     private javax.swing.JButton AñadirAgregar;
-    private javax.swing.JTextField AñadirApellidos;
-    private javax.swing.JTextField AñadirAño;
-    private javax.swing.JTextField AñadirBarrio;
-    private javax.swing.JTextField AñadirBarrio1;
-    private javax.swing.JTextField AñadirCiudad;
-    private javax.swing.JTextField AñadirDia;
-    private javax.swing.JTextField AñadirID;
-    private javax.swing.JTextField AñadirMes;
-    private javax.swing.JTextField AñadirNombre;
-    private javax.swing.JTextField AñadirNumero;
-    private javax.swing.JComboBox<String> EditEstamento;
-    private javax.swing.JComboBox<String> EditTipo;
+    public javax.swing.JTextField AñadirApellidos;
+    public static javax.swing.JTextField AñadirAño;
+    public javax.swing.JTextField AñadirBarrio;
+    public javax.swing.JTextField AñadirCiudad;
+    public static javax.swing.JTextField AñadirDia;
+    public static javax.swing.JTextField AñadirDireccion;
+    public static javax.swing.JComboBox<String> AñadirEstamento;
+    public javax.swing.JTextField AñadirID;
+    public static javax.swing.JTextField AñadirMes;
+    public javax.swing.JTextField AñadirNombre;
+    public static javax.swing.JTextField AñadirNumero;
+    public static javax.swing.JComboBox<String> AñadirTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

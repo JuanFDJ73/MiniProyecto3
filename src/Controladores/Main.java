@@ -6,10 +6,10 @@ package Controladores;
 
 import javax.swing.JFrame;
 import Vista.StartWindow;  
-
+import Vista.Profesores;
 
 public class Main {
-
+    
     public static void main(String[] args) {
         // Crear una instancia del JFrame StartWindow
         StartWindow startWindow = new StartWindow();
