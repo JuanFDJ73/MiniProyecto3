@@ -4,17 +4,63 @@
  */
 package Vista;
 
+import Modelos.ContactsList;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import Vista.EditWindow;
+
 /**
  *
  * @author Usuario
  */
 public class Estudiantes extends javax.swing.JPanel {
+    ContactsList contacto = new ContactsList();
+    DefaultTableModel modelo=new DefaultTableModel();
+    
+    
+   
+    public void cargarDatosEstudiantes(){
+    
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Dirección");
+        modelo.addColumn("Barrio");
+        modelo.addColumn("Ciudad");
+        modelo.addColumn("Numero");
+        modelo.addColumn("Tipo");
+        modelo.addColumn("Estamento");
+        modelo.addColumn("Dia");
+        modelo.addColumn("Mes");
+        modelo.addColumn("Año");
+        tablaDatosEstudiantes.setModel(modelo);
+        
+        ArrayList<Object[]>info=new ArrayList<Object[]>();
+        
+        
+        Object[]dato1=new Object[]{"0","Luis","Perez","Cra 6","Caney","Cali","0567000000","Movil","Estudiante","10","7","2002"};
+        Object[]dato2=new Object[]{"1","Yuriko","von Morothy","Cra 10","Melendez","Pasto","34332353333","Movil","Estudiante","9","3","2004"};
+        Object[]dato3=new Object[]{"2","Nyarlathotep","Restrepo","Cra 24","Vallegrande","Medellin","2232222","Telefono","Estudiante","2","6","2003"};
+        Object[]dato4=new Object[]{"3","Yidra","Silva","Cra 13","Lido","Cali","1211111111","Movil","Estudiante","8","12","2005"};
+
+        info.add(dato1);
+        info.add(dato2);
+        info.add(dato3);
+        info.add(dato4);
+        
+        for (Object []informacion : info){
+            modelo.addRow(informacion);
+        }
+        
+        tablaDatosEstudiantes.setModel(modelo);
+    }
 
     /**
      * Creates new form Estudiantes
      */
     public Estudiantes() {
         initComponents();
+        cargarDatosEstudiantes();
     }
 
     /**
@@ -26,22 +72,61 @@ public class Estudiantes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaDatosEstudiantes = new javax.swing.JTable();
+
         setBackground(new java.awt.Color(204, 255, 204));
         setPreferredSize(new java.awt.Dimension(660, 314));
+
+        tablaDatosEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablaDatosEstudiantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaDatosEstudiantesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablaDatosEstudiantes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tablaDatosEstudiantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDatosEstudiantesMouseClicked
+        // TODO add your handling code here:
+        int seleccionar=tablaDatosEstudiantes.rowAtPoint(evt.getPoint());
+        //EditWindow editWindow = new EditWindow();
+        
+        contacto.setNombre(String.valueOf(tablaDatosEstudiantes.getValueAt(seleccionar,1)));
+        //contacto.setApellidos(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,2)));
+        
+        String nombreContacto = contacto.getNombre();
+        //String apellidosContacto = contacto.getApellidos();
+        
+        System.out.println("Nombre: " + nombreContacto);
+        //System.out.println("Apellidos: " + apellidosContacto);
+        
+    }//GEN-LAST:event_tablaDatosEstudiantesMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaDatosEstudiantes;
     // End of variables declaration//GEN-END:variables
 }

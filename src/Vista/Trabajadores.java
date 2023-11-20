@@ -4,17 +4,64 @@
  */
 package Vista;
 
-/**
+import Modelos.ContactsList;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import Vista.EditWindow;
+/*
  *
  * @author Usuario
  */
 public class Trabajadores extends javax.swing.JPanel {
+    ContactsList contacto = new ContactsList();
+    DefaultTableModel modelo=new DefaultTableModel(); 
 
     /**
      * Creates new form Trabajadores
      */
+        public void cargarDatosEstudiantes(){
+    
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Dirección");
+        modelo.addColumn("Barrio");
+        modelo.addColumn("Ciudad");
+        modelo.addColumn("Numero");
+        modelo.addColumn("Tipo");
+        modelo.addColumn("Estamento");
+        modelo.addColumn("Dia");
+        modelo.addColumn("Mes");
+        modelo.addColumn("Año");
+        tablaDatosTrabajadores.setModel(modelo);
+        
+        ArrayList<Object[]>info=new ArrayList<Object[]>();
+        
+        
+        Object[]dato1=new Object[]{"0","Ifrit","Gonzales","Cra 3","El diamante","Cali","0000000000","Movil","Trabajador","10","7","2002"};
+        Object[]dato2=new Object[]{"1","Shiva","Solarte","Cra 4","Vergel","Pasto","33333333333","Movil","Trabajador","9","3","2004"};
+        Object[]dato3=new Object[]{"2","Odín","Perez","Cra 1","Caney","Medellin","2222222","Telefono","Trabajador","2","6","2003"};
+        Object[]dato4=new Object[]{"3","Bahamut","Tiranido","Cra 2","Poblado","Cali","1111111111","Movil","Trabajador","8","12","2005"};
+
+        info.add(dato1);
+        info.add(dato2);
+        info.add(dato3);
+        info.add(dato4);
+        
+        for (Object []informacion : info){
+            modelo.addRow(informacion);
+        }
+        
+        tablaDatosTrabajadores.setModel(modelo);
+    }
+
+    /**
+     * Creates new form Estudiantes
+     */
+
     public Trabajadores() {
         initComponents();
+        cargarDatosEstudiantes();
     }
 
     /**
@@ -26,21 +73,55 @@ public class Trabajadores extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaDatosTrabajadores = new javax.swing.JTable();
+
         setBackground(new java.awt.Color(204, 255, 255));
+
+        tablaDatosTrabajadores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablaDatosTrabajadores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaDatosTrabajadoresMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablaDatosTrabajadores);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 313, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tablaDatosTrabajadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDatosTrabajadoresMouseClicked
+        // TODO add your handling code here:
+        int seleccionar=tablaDatosTrabajadores.rowAtPoint(evt.getPoint());
+        
+        contacto.setNombre(String.valueOf(tablaDatosTrabajadores.getValueAt(seleccionar,1)));
+        
+        String nombreContacto = contacto.getNombre();
+        
+        System.out.println("Nombre: " + nombreContacto);
+    }//GEN-LAST:event_tablaDatosTrabajadoresMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaDatosTrabajadores;
     // End of variables declaration//GEN-END:variables
 }

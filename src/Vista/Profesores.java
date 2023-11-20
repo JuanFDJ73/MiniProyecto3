@@ -28,15 +28,15 @@ public class Profesores extends javax.swing.JPanel {
         modelo.addColumn("Dia");
         modelo.addColumn("Mes");
         modelo.addColumn("Año");
-        tabladatosProfesores.setModel(modelo);
+        tablaDatosProfesores.setModel(modelo);
         
         ArrayList<Object[]>info=new ArrayList<Object[]>();
         
         
-        Object[]dato1=new Object[]{"0","Juan","Duque","Cra 3","El diamante","Cali","0000000000","Movil","Estudiante","10","7","2002"};
-        Object[]dato2=new Object[]{"1","Alejandro","Ceron","Cra 4","Vergel","Pasto","33333333333","Movil","Trabajador","9","3","2004"};
+        Object[]dato1=new Object[]{"0","Juan","Duque","Cra 3","El diamante","Cali","0000000000","Movil","Profesor","10","7","2002"};
+        Object[]dato2=new Object[]{"1","Alejandro","Ceron","Cra 4","Vergel","Pasto","33333333333","Movil","Profesor","9","3","2004"};
         Object[]dato3=new Object[]{"2","Charlotte","Garcia","Cra 1","Caney","Medellin","2222222","Telefono","Profesor","2","6","2003"};
-        Object[]dato4=new Object[]{"3","Natalia","Silva","Cra 2","Poblado","Cali","1111111111","Movil","Estudiante","8","12","2005"};
+        Object[]dato4=new Object[]{"3","Natalia","Silva","Cra 2","Poblado","Cali","1111111111","Movil","Profesor","8","12","2005"};
 
         info.add(dato1);
         info.add(dato2);
@@ -47,7 +47,7 @@ public class Profesores extends javax.swing.JPanel {
             modelo.addRow(informacion);
         }
         
-        tabladatosProfesores.setModel(modelo);
+        tablaDatosProfesores.setModel(modelo);
     }
 
     public Profesores() {
@@ -65,11 +65,11 @@ public class Profesores extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabladatosProfesores = new javax.swing.JTable();
+        tablaDatosProfesores = new javax.swing.JTable();
 
         setForeground(new java.awt.Color(255, 204, 255));
 
-        tabladatosProfesores.setModel(new javax.swing.table.DefaultTableModel(
+        tablaDatosProfesores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -77,12 +77,12 @@ public class Profesores extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabladatosProfesores.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaDatosProfesores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabladatosProfesoresMouseClicked(evt);
+                tablaDatosProfesoresMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabladatosProfesores);
+        jScrollPane1.setViewportView(tablaDatosProfesores);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -96,12 +96,12 @@ public class Profesores extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tabladatosProfesoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabladatosProfesoresMouseClicked
+    private void tablaDatosProfesoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDatosProfesoresMouseClicked
         // TODO add your handling code here:
-        int seleccionar=tabladatosProfesores.rowAtPoint(evt.getPoint());
+        int seleccionar=tablaDatosProfesores.rowAtPoint(evt.getPoint());
         //EditWindow editWindow = new EditWindow();
         
-        contacto.setNombre(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,1)));
+        contacto.setNombre(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar,1)));
         //contacto.setApellidos(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,2)));
         
         String nombreContacto = contacto.getNombre();
@@ -117,11 +117,11 @@ public class Profesores extends javax.swing.JPanel {
         EditWindow.EditDireccion.setText(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,3)));
 
         */
-    }//GEN-LAST:event_tabladatosProfesoresMouseClicked
+    }//GEN-LAST:event_tablaDatosProfesoresMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable tabladatosProfesores;
+    public javax.swing.JTable tablaDatosProfesores;
     // End of variables declaration//GEN-END:variables
 }
