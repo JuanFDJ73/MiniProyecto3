@@ -1,18 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
-/**
- *
- * @author Usuario
- */
+import javax.swing.JOptionPane;
+
+
 public class AddWindow extends javax.swing.JFrame {
 
-    /**
-     * Creates new form EditWindow
-     */
+
     public AddWindow() {
         initComponents();
     }
@@ -71,6 +65,11 @@ public class AddWindow extends javax.swing.JFrame {
 
         AñadirAgregar.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         AñadirAgregar.setText("Agregar");
+        AñadirAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AñadirAgregarMouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel2.setText("Añadir");
@@ -310,9 +309,69 @@ public class AddWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_AtrásActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void AñadirAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AñadirAgregarMouseClicked
+        
+        
+        // Verificar que los campos obligatorios estén llenos
+        if (AñadirNombre.getText().isEmpty() || AñadirDireccion.getText().isEmpty() ||
+            AñadirBarrio.getText().isEmpty() || AñadirCiudad.getText().isEmpty() ||
+            AñadirNumero.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
+            return; // Salir del método para evitar la acción incorrecta
+        }
+
+        // Verificar que el campo de nombre contenga solo letras
+        if (!soloLetras(AñadirNombre.getText())) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese solo letras en el campo de nombre.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Verificar que el campo de apellidos contenga solo letras o esté vacío
+        if (!AñadirApellidos.getText().isEmpty() && !soloLetras(AñadirApellidos.getText())) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese solo letras en el campo de apellidos.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Verificar que el campo de ID contenga solo números o esté vacío
+        if (!AñadirID.getText().isEmpty() && !soloNumeros(AñadirID.getText())) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese solo números en el campo de ID.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Verificar que el campo de dirección no esté vacío
+        if (AñadirDireccion.getText()== null) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese una dirección.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Verificar que el campo de barrio no esté vacío
+        if (AñadirBarrio.getText()== null) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un barrio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Verificar que el campo de ciudad no esté vacío
+        if (AñadirCiudad.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese una ciudad.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Verificar que el campo de número contenga solo números
+        if (!soloNumeros(AñadirNumero.getText())) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese solo números en el campo de número.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Verificar que los campos de día, mes y año contengan solo números o estén vacíos
+        if ((!AñadirDia.getText().isEmpty() && !soloNumeros(AñadirDia.getText())) ||
+            (!AñadirMes.getText().isEmpty() && !soloNumeros(AñadirMes.getText())) ||
+            (!AñadirAño.getText().isEmpty() && !soloNumeros(AñadirAño.getText()))) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese solo números en los campos de día, mes y año.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    }//GEN-LAST:event_AñadirAgregarMouseClicked
+
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -336,21 +395,7 @@ public class AddWindow extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(AddWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -359,20 +404,40 @@ public class AddWindow extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    
+    
+    // Método para verificar si una cadena contiene solo letras
+    private boolean soloLetras(String cadena) {
+        return cadena.matches("^[a-zA-Z]+$");
+    }    
+    
+    
+    // Método para verificar si una cadena contiene solo números
+    private boolean soloNumeros(String cadena) {
+        return cadena.matches("^[0-9]+$");
+    }
+
+    private boolean camposVacios() {
+        return AñadirNombre.getText().isEmpty() || AñadirDireccion.getText().isEmpty() ||
+                AñadirBarrio.getText().isEmpty() || AñadirCiudad.getText().isEmpty() ||
+                AñadirNumero.getText().isEmpty();
+    }  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atrás;
     private javax.swing.JButton AñadirAgregar;
-    public javax.swing.JTextField AñadirApellidos;
+    public static javax.swing.JTextField AñadirApellidos;
     public static javax.swing.JTextField AñadirAño;
-    public javax.swing.JTextField AñadirBarrio;
-    public javax.swing.JTextField AñadirCiudad;
+    public static javax.swing.JTextField AñadirBarrio;
+    public static javax.swing.JTextField AñadirCiudad;
     public static javax.swing.JTextField AñadirDia;
     public static javax.swing.JTextField AñadirDireccion;
     public static javax.swing.JComboBox<String> AñadirEstamento;
-    public javax.swing.JTextField AñadirID;
+    public static javax.swing.JTextField AñadirID;
     public static javax.swing.JTextField AñadirMes;
-    public javax.swing.JTextField AñadirNombre;
+    public static javax.swing.JTextField AñadirNombre;
     public static javax.swing.JTextField AñadirNumero;
     public static javax.swing.JComboBox<String> AñadirTipo;
     private javax.swing.JLabel jLabel1;
