@@ -7,30 +7,56 @@ package Vista;
 import java.util.ArrayList;
 
 public class EditWindow extends javax.swing.JFrame {
+    
+    
+    // Agrega estos campos para almacenar la información recibida
+    private int id;
+    private String nombre;
+    private String apellidos;
+    private String direccion;
+    private String barrio;
+    private String ciudad;
+    private int numero;
+    private String tipo;
+    private String estamento;
+    private int dia;
+    private int mes;
+    private int año;
       
     private ArrayList<Object[]> datos;
     
-    
-    public void recibirDatos(ArrayList<Object[]> datos) {
-        for (Object[] info : datos) {
-            String nombre = (String) info[0];
-            String email = (String) info[1];
 
-            // Procesar los datos recibidos
-            System.out.println("Nombre: " + nombre + ", Email: " + email);
-        }
-    }
-
-    
-    
-    
-    public EditWindow() {
+    public EditWindow(int id, String nombre, String apellidos, String direccion, String barrio, String ciudad, int numero, String tipo, String estamento, int dia, int mes, int año) {
         initComponents();
+        // Inicializa los campos con los valores recibidos
 
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.direccion = direccion;
+        this.barrio = barrio;
+        this.ciudad = ciudad;
+        this.numero = numero;
+        this.tipo = tipo;
+        this.estamento = estamento;
+        this.dia = dia;
+        this.mes = mes;
+        this.año = año;
 
-        recibirDatos(datos);
-        
-        
+        // Llena los campos de texto con la información recibida
+        EditID.setText(Integer.toString(id));
+        EditNombre.setText(nombre);
+        EditApellidos.setText(apellidos);
+        EditDireccion.setText(direccion);
+        EditBarrio.setText(barrio);
+        EditCiudad.setText(ciudad);
+        EditNumero.setText(Integer.toString(numero));
+        EditTipo.setSelectedItem(tipo);
+        EditEstamento.setSelectedItem(estamento);
+        EditNumero.setText(Integer.toString(dia));
+        EditNumero.setText(Integer.toString(mes));
+        EditNumero.setText(Integer.toString(año));
+
     }
 
     /**
@@ -319,41 +345,8 @@ public class EditWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_AtrásActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EditWindow().setVisible(true);
-            }
-        });
-    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atrás;

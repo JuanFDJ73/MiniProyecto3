@@ -3,44 +3,13 @@ package Vista;
 
 
 
-
 public class StartWindow extends javax.swing.JFrame {
 
 
     private Profesores p1;
-    
-    
-    public void tomarDatos(Object[] datos) {
-        String id = (String) datos[0];
-        String nombre = (String) datos[1];
-        String apellido = (String) datos[2];
-        String direccion = (String) datos[3];
-        String barrio = (String) datos[4];
-        String ciudad = (String) datos[5];
-        String numero = (String) datos[6];
-        String tipo = (String) datos[7];
-        String estamento = (String) datos[8];
-        String dia = (String) datos[9];
-        String mes = (String) datos[10];
-        String año = (String) datos[11];
 
-        // Usar datos del array
-        System.out.println("ID: " + id);
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Apellidos: " + apellido);
-        System.out.println("Direccion: " + direccion);
-        System.out.println("Barrio: " + barrio);
-        System.out.println("Ciudad: " + ciudad);
-        System.out.println("Numero: " + numero);
-        System.out.println("Tipo: " + tipo);
-        System.out.println("Estamento: " + estamento);
-        System.out.println("Dia: " + dia);
-        System.out.println("Mes: " + mes);
-        System.out.println("Año: " + año);
-    }
-
-    // Otros métodos si es necesario
     
+   
     public StartWindow() {
         initComponents();
 
@@ -63,14 +32,14 @@ public class StartWindow extends javax.swing.JFrame {
 
         Añadir = new javax.swing.JButton();
         Ajustes = new javax.swing.JButton();
-        Editar = new javax.swing.JButton();
-        Eliminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Profesores = new javax.swing.JButton();
         Alumnos = new javax.swing.JButton();
         Trabajadores = new javax.swing.JButton();
         Todos = new javax.swing.JButton();
         Tabla = new javax.swing.JPanel();
+        Editar = new javax.swing.JToggleButton();
+        Eliminar = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,22 +56,6 @@ public class StartWindow extends javax.swing.JFrame {
         Ajustes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AjustesActionPerformed(evt);
-            }
-        });
-
-        Editar.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        Editar.setText("Editar");
-        Editar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarActionPerformed(evt);
-            }
-        });
-
-        Eliminar.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        Eliminar.setText("Eliminar");
-        Eliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarActionPerformed(evt);
             }
         });
 
@@ -146,44 +99,59 @@ public class StartWindow extends javax.swing.JFrame {
         Tabla.setLayout(TablaLayout);
         TablaLayout.setHorizontalGroup(
             TablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGap(0, 647, Short.MAX_VALUE)
         );
         TablaLayout.setVerticalGroup(
             TablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGap(0, 290, Short.MAX_VALUE)
         );
+
+        Editar.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        Editar.setText("Editar");
+        Editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarActionPerformed(evt);
+            }
+        });
+
+        Eliminar.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Tabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Profesores, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Alumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Trabajadores, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Todos, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(Añadir)
-                        .addGap(45, 45, 45)
-                        .addComponent(Ajustes)
-                        .addGap(46, 46, 46)
-                        .addComponent(Editar)
-                        .addGap(35, 35, 35)
-                        .addComponent(Eliminar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Profesores, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Alumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Trabajadores, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Todos, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Tabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(Añadir)
+                            .addGap(45, 45, 45)
+                            .addComponent(Ajustes)
+                            .addGap(28, 28, 28)
+                            .addComponent(Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(15, 15, 15))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,13 +167,13 @@ public class StartWindow extends javax.swing.JFrame {
                     .addComponent(Profesores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Tabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Ajustes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12))
+                    .addComponent(Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11))
         );
 
         pack();
@@ -230,27 +198,6 @@ public class StartWindow extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_AjustesActionPerformed
-
-    private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
-
-        
-        EditWindow editar = new EditWindow();
-        
-        editar.setVisible(true);
-        
-        this.dispose();
-        
-    }//GEN-LAST:event_EditarActionPerformed
-
-    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
-        
-        DeleteWindow wea = new DeleteWindow();
-        
-        wea.setVisible(true);
-        
-        this.dispose();
-        
-    }//GEN-LAST:event_EliminarActionPerformed
 
     private void ProfesoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfesoresActionPerformed
 
@@ -286,6 +233,8 @@ public class StartWindow extends javax.swing.JFrame {
         p3.setSize(660,314);
         p3.setLocation(10,50);
         
+        Tabla.setEnabled(false);
+        
         Tabla.removeAll();
         Tabla.add(p3);
         Tabla.revalidate();
@@ -305,6 +254,32 @@ public class StartWindow extends javax.swing.JFrame {
         Tabla.repaint();
 
     }//GEN-LAST:event_TodosActionPerformed
+
+    private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
+        
+        if (Editar.isSelected()) {
+            System.out.println("Botón Editar seleccionado");
+            
+            p1.habilitarEdicion(true);            
+            
+        } else {
+            System.out.println("Botón Editar deseleccionado");
+            
+            p1.habilitarEdicion(false);
+            
+        }
+        
+    }//GEN-LAST:event_EditarActionPerformed
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        
+        DeleteWindow wea = new DeleteWindow();
+        
+        wea.setVisible(true);
+        
+        this.dispose();
+        
+    }//GEN-LAST:event_EliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,10 +320,10 @@ public class StartWindow extends javax.swing.JFrame {
     public javax.swing.JButton Ajustes;
     public javax.swing.JButton Alumnos;
     public javax.swing.JButton Añadir;
-    public javax.swing.JButton Editar;
-    public javax.swing.JButton Eliminar;
+    public static javax.swing.JToggleButton Editar;
+    public static javax.swing.JToggleButton Eliminar;
     public javax.swing.JButton Profesores;
-    private javax.swing.JPanel Tabla;
+    public javax.swing.JPanel Tabla;
     public javax.swing.JButton Todos;
     public javax.swing.JButton Trabajadores;
     private javax.swing.JLabel jLabel1;
