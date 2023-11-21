@@ -4,14 +4,18 @@ package Vista;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
-import Vista.EditWindow;
 import Modelos.ContactsList;
+
 
 public class Profesores extends javax.swing.JPanel {
     
+    private ArrayList<Object[]> info;
     ContactsList contacto = new ContactsList();
     DefaultTableModel modelo=new DefaultTableModel();
     
+    public ArrayList<Object[]> obtenerInformacion() {
+        return info;
+    }
     
    
     public void cargardatosProfesores(){
@@ -34,14 +38,12 @@ public class Profesores extends javax.swing.JPanel {
         
         
         Object[]dato1=new Object[]{"0","Juan","Duque","Cra 3","El diamante","Cali","0000000000","Movil","Profesor","10","7","2002"};
-        Object[]dato2=new Object[]{"1","Alejandro","Ceron","Cra 4","Vergel","Pasto","33333333333","Movil","Profesor","9","3","2004"};
-        Object[]dato3=new Object[]{"2","Charlotte","Garcia","Cra 1","Caney","Medellin","2222222","Telefono","Profesor","2","6","2003"};
-        Object[]dato4=new Object[]{"3","Natalia","Silva","Cra 2","Poblado","Cali","1111111111","Movil","Profesor","8","12","2005"};
+        Object[]dato2=new Object[]{"2","Charlotte","Garcia","Cra 1","Caney","Medellin","2222222","Telefono","Profesor","2","6","2003"};
+        Object[]dato3=new Object[]{"3","Natalia","Silva","Cra 2","Poblado","Cali","1111111111","Movil","Profesor","8","12","2005"};
 
         info.add(dato1);
         info.add(dato2);
         info.add(dato3);
-        info.add(dato4);
         
         for (Object []informacion : info){
             modelo.addRow(informacion);
@@ -53,6 +55,7 @@ public class Profesores extends javax.swing.JPanel {
     public Profesores() {
         initComponents();
         cargardatosProfesores();
+        info = new ArrayList<>();
     }
 
     /**
@@ -97,28 +100,66 @@ public class Profesores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tablaDatosProfesoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDatosProfesoresMouseClicked
-        // TODO add your handling code here:
+        
         int seleccionar=tablaDatosProfesores.rowAtPoint(evt.getPoint());
-        //EditWindow editWindow = new EditWindow();
         
+        ArrayList<Object[]>info=new ArrayList<Object[]>();
+        
+        
+        contacto.setID(Integer.parseInt(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar, 0))));
         contacto.setNombre(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar,1)));
-        //contacto.setApellidos(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,2)));
+        contacto.setApellidos(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar,2)));
+        contacto.setDireccion(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar,3)));
+        contacto.setBarrio(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar,4)));
+        contacto.setCiudad(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar,5)));
+        contacto.setNumero(Integer.parseInt(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar, 6))));
+        contacto.setTipo(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar,7)));
+        contacto.setEstamento(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar,8)));
+        contacto.setDia(Integer.parseInt(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar, 9))));
+        contacto.setMes(Integer.parseInt(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar, 10))));
+        contacto.setAño(Integer.parseInt(String.valueOf(tablaDatosProfesores.getValueAt(seleccionar, 11))));
         
+        int IDContacto = contacto.getId();
         String nombreContacto = contacto.getNombre();
-        //String apellidosContacto = contacto.getApellidos();
+        String apellidosContacto = contacto.getApellidos();
+        String direccionContacto = contacto.getDireccion();
+        String barrioContacto = contacto.getBarrio();
+        String ciudadContacto = contacto.getCiudad();
+        int numeroContacto = contacto.getNumero();
+        String tipoContacto = contacto.getTipo();
+        String EstamentoContacto = contacto.getEstamento();
+        int DiaContacto = contacto.getDia();
+        int MesContacto = contacto.getMes();
+        int AñoContacto = contacto.getAño();
         
+        
+        
+        System.out.println("ID: " + IDContacto);
         System.out.println("Nombre: " + nombreContacto);
-        //System.out.println("Apellidos: " + apellidosContacto);
+        System.out.println("Apellidos: " + apellidosContacto);
+        System.out.println("Direccion: " + direccionContacto);
+        System.out.println("Barrio: " + barrioContacto);
+        System.out.println("Ciudad: " + ciudadContacto);
+        System.out.println("Numero: " + numeroContacto);
+        System.out.println("Tipo: " + tipoContacto);
+        System.out.println("Estamento: " + EstamentoContacto);
+        System.out.println("Dia: " + DiaContacto);
+        System.out.println("Mes: " + MesContacto);
+        System.out.println("Año: " + AñoContacto);
         
-        /*
-        EditWindow.EditID.setText(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,0)));
-        EditWindow.EditNombre.setText(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,1)));
-        EditWindow.EditApellidos.setText(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,2)));
-        EditWindow.EditDireccion.setText(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,3)));
-
-        */
+        
+        Object[] datos = new Object[]{IDContacto, nombreContacto, apellidosContacto, direccionContacto, barrioContacto, ciudadContacto, numeroContacto, tipoContacto, EstamentoContacto, DiaContacto, MesContacto, AñoContacto};
+        
+        agregarInformacion(IDContacto,nombreContacto,apellidosContacto,direccionContacto,barrioContacto,ciudadContacto,numeroContacto,tipoContacto,EstamentoContacto,DiaContacto,MesContacto,AñoContacto);
+        System.out.println("Dato: " + datos);
     }//GEN-LAST:event_tablaDatosProfesoresMouseClicked
 
+
+    public void agregarInformacion(int id, String nombre, String apellido, String direccion, String barrio, String ciudad, int numero, String tipo, String estamento, int dia, int mes, int año) {
+        Object[] datos = {id, nombre, apellido, direccion, barrio, ciudad, numero, tipo, estamento, dia, mes, año};
+        info.add(datos);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

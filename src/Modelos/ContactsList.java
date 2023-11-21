@@ -4,9 +4,11 @@
  */
 package Modelos;
 
+import java.util.ArrayList;
+
 
 public class ContactsList {
-    //private int id;
+    private int id;
     private String nombre;
     private String apellidos;
     private String direccion;
@@ -19,6 +21,15 @@ public class ContactsList {
     private int mes;
     private int año;
     
+  
+    
+    public int getId() {
+        return id;
+    }
+    
+    public void setID(int id) {
+        this.id = id;
+    }
     
     public String getNombre() {
         return nombre;

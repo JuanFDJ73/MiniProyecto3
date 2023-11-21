@@ -1,18 +1,49 @@
 
 package Vista;
 
-import Modelos.ContactsList;
+
+
 
 public class StartWindow extends javax.swing.JFrame {
 
-    private ContactsList contactsList;
+
     private Profesores p1;
+    
+    
+    public void tomarDatos(Object[] datos) {
+        String id = (String) datos[0];
+        String nombre = (String) datos[1];
+        String apellido = (String) datos[2];
+        String direccion = (String) datos[3];
+        String barrio = (String) datos[4];
+        String ciudad = (String) datos[5];
+        String numero = (String) datos[6];
+        String tipo = (String) datos[7];
+        String estamento = (String) datos[8];
+        String dia = (String) datos[9];
+        String mes = (String) datos[10];
+        String año = (String) datos[11];
+
+        // Usar datos del array
+        System.out.println("ID: " + id);
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Apellidos: " + apellido);
+        System.out.println("Direccion: " + direccion);
+        System.out.println("Barrio: " + barrio);
+        System.out.println("Ciudad: " + ciudad);
+        System.out.println("Numero: " + numero);
+        System.out.println("Tipo: " + tipo);
+        System.out.println("Estamento: " + estamento);
+        System.out.println("Dia: " + dia);
+        System.out.println("Mes: " + mes);
+        System.out.println("Año: " + año);
+    }
+
+    // Otros métodos si es necesario
     
     public StartWindow() {
         initComponents();
-        
-        // Inicializar la lista de contactos
-        contactsList = new ContactsList();
+
         
         p1 = new Profesores();
         p1.setSize(660,314);
@@ -201,6 +232,7 @@ public class StartWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_AjustesActionPerformed
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
+
         
         EditWindow editar = new EditWindow();
         

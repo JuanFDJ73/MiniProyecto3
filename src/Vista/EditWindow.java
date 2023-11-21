@@ -4,18 +4,33 @@
  */
 package Vista;
 
-import Modelos.ContactsList;
+import java.util.ArrayList;
 
 public class EditWindow extends javax.swing.JFrame {
+      
+    private ArrayList<Object[]> datos;
     
-    ContactsList contacto = new ContactsList();
+    
+    public void recibirDatos(ArrayList<Object[]> datos) {
+        for (Object[] info : datos) {
+            String nombre = (String) info[0];
+            String email = (String) info[1];
+
+            // Procesar los datos recibidos
+            System.out.println("Nombre: " + nombre + ", Email: " + email);
+        }
+    }
+
+    
     
     
     public EditWindow() {
         initComponents();
+
+
+        recibirDatos(datos);
         
-        String nombreContacto = contacto.getNombre();
-        System.out.println("Nombre: " + nombreContacto);
+        
     }
 
     /**
@@ -40,7 +55,6 @@ public class EditWindow extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        EditDireccion = new javax.swing.JComboBox<>();
         EditBarrio = new javax.swing.JTextField();
         EditCiudad = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -59,6 +73,7 @@ public class EditWindow extends javax.swing.JFrame {
         EditNumero = new javax.swing.JTextField();
         EditEstamento = new javax.swing.JComboBox<>();
         EditTipo = new javax.swing.JComboBox<>();
+        EditDireccion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,9 +118,6 @@ public class EditWindow extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel8.setText("Ciudad:");
-
-        EditDireccion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        EditDireccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         EditBarrio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
@@ -166,7 +178,6 @@ public class EditWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EditDireccion, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                     .addComponent(EditNumero)
                     .addComponent(EditNombre)
@@ -185,7 +196,8 @@ public class EditWindow extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel18))
                             .addComponent(EditDia, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 41, Short.MAX_VALUE)))
+                        .addGap(0, 41, Short.MAX_VALUE))
+                    .addComponent(EditDireccion))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -252,18 +264,20 @@ public class EditWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel17))
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(jLabel15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel17)))
+                                .addComponent(jLabel15))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(12, 12, 12)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(EditBarrio)
-                            .addComponent(EditDireccion)
-                            .addComponent(EditCiudad))
+                            .addComponent(EditCiudad)
+                            .addComponent(EditDireccion))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -274,7 +288,7 @@ public class EditWindow extends javax.swing.JFrame {
                     .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EditEstamento, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(EditEstamento, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
                     .addComponent(EditTipo)
                     .addComponent(EditNumero, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -331,9 +345,7 @@ public class EditWindow extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(EditWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -350,7 +362,7 @@ public class EditWindow extends javax.swing.JFrame {
     public static javax.swing.JTextField EditBarrio;
     public static javax.swing.JTextField EditCiudad;
     public static javax.swing.JTextField EditDia;
-    private javax.swing.JComboBox<String> EditDireccion;
+    public static javax.swing.JTextField EditDireccion;
     public static javax.swing.JComboBox<String> EditEstamento;
     public static javax.swing.JTextField EditID;
     public static javax.swing.JTextField EditMes;
