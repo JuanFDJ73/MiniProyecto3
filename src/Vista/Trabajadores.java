@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Modelos.Contact;
 import Modelos.ContactsList;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -13,7 +14,7 @@ import Vista.EditWindow;
  * @author Usuario
  */
 public class Trabajadores extends javax.swing.JPanel {
-    ContactsList contacto = new ContactsList();
+    Contact contacto = new Contact();
     DefaultTableModel modelo=new DefaultTableModel(); 
 
     /**

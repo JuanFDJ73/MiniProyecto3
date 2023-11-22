@@ -1,6 +1,7 @@
 
 package Vista;
 
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 
@@ -21,7 +22,7 @@ public class AddWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         Atrás = new javax.swing.JButton();
-        AñadirAgregar = new javax.swing.JButton();
+        añadirAgregar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -63,11 +64,11 @@ public class AddWindow extends javax.swing.JFrame {
             }
         });
 
-        AñadirAgregar.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        AñadirAgregar.setText("Agregar");
-        AñadirAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+        añadirAgregar.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        añadirAgregar.setText("Agregar");
+        añadirAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AñadirAgregarMouseClicked(evt);
+                añadirAgregarMouseClicked(evt);
             }
         });
 
@@ -230,7 +231,7 @@ public class AddWindow extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AñadirAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(añadirAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
@@ -240,7 +241,7 @@ public class AddWindow extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(AñadirAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(añadirAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -309,7 +310,62 @@ public class AddWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_AtrásActionPerformed
 
-    private void AñadirAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AñadirAgregarMouseClicked
+    public void addAgregarListener(ActionListener listener) {
+        añadirAgregar.addActionListener(listener);
+    }
+    
+    public String getNombreInput() {
+        return AñadirNombre.getText();
+    }
+    
+    public String getApellidosInput() {
+        return AñadirApellidos.getText();
+    }
+    
+    public String getDireccionInput() {
+        return AñadirDireccion.getText();
+    }
+    
+    public String getIDInput() {
+        return AñadirID.getText();
+    }
+    
+    public String getBarrioInput() {
+        return AñadirBarrio.getText();
+    }
+    
+    public String getCiudadInput() {
+        return AñadirCiudad.getText();
+    }
+    
+    public String getNumeroInput() {
+        return AñadirNumero.getText();
+    }
+    
+    public String getTipoInput() {
+        return AñadirTipo.getSelectedItem().toString();
+    }
+    
+    public String getEstamentoInput() {
+        return AñadirEstamento.getSelectedItem().toString();
+    }
+    
+    public String getDiaInput() {
+        return AñadirDia.getText();
+    }
+    
+    public String getMesInput() {
+        return AñadirMes.getText();
+    }
+    
+    public String getAñoInput() {
+        return AñadirAño.getText();
+    }
+    
+    
+    
+    
+    private void añadirAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_añadirAgregarMouseClicked
         
         
         // Verificar que los campos obligatorios estén llenos
@@ -369,7 +425,7 @@ public class AddWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese solo números en los campos de día, mes y año.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-    }//GEN-LAST:event_AñadirAgregarMouseClicked
+    }//GEN-LAST:event_añadirAgregarMouseClicked
 
 
     public static void main(String args[]) {
@@ -427,7 +483,6 @@ public class AddWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atrás;
-    private javax.swing.JButton AñadirAgregar;
     public static javax.swing.JTextField AñadirApellidos;
     public static javax.swing.JTextField AñadirAño;
     public static javax.swing.JTextField AñadirBarrio;
@@ -440,6 +495,7 @@ public class AddWindow extends javax.swing.JFrame {
     public static javax.swing.JTextField AñadirNombre;
     public static javax.swing.JTextField AñadirNumero;
     public static javax.swing.JComboBox<String> AñadirTipo;
+    private javax.swing.JButton añadirAgregar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

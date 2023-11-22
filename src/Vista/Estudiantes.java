@@ -4,17 +4,17 @@
  */
 package Vista;
 
-import Modelos.ContactsList;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import Vista.EditWindow;
+import Modelos.Contact;
 
 /**
  *
  * @author Usuario
  */
 public class Estudiantes extends javax.swing.JPanel {
-    ContactsList contacto = new ContactsList();
+    ArrayList contactoEstudiantes = new ArrayList();
     DefaultTableModel modelo=new DefaultTableModel();
     
     
@@ -35,20 +35,10 @@ public class Estudiantes extends javax.swing.JPanel {
         modelo.addColumn("Año");
         tablaDatosEstudiantes.setModel(modelo);
         
-        ArrayList<Object[]>info=new ArrayList<Object[]>();
+        ArrayList<Object[]>estudiantes=new ArrayList<Object[]>();
         
         
-        Object[]dato1=new Object[]{"0","Luis","Perez","Cra 6","Caney","Cali","0567000000","Movil","Estudiante","10","7","2002"};
-        Object[]dato2=new Object[]{"1","Yuriko","von Morothy","Cra 10","Melendez","Pasto","34332353333","Movil","Estudiante","9","3","2004"};
-        Object[]dato3=new Object[]{"2","Nyarlathotep","Restrepo","Cra 24","Vallegrande","Medellin","2232222","Telefono","Estudiante","2","6","2003"};
-        Object[]dato4=new Object[]{"3","Yidra","Silva","Cra 13","Lido","Cali","1211111111","Movil","Estudiante","8","12","2005"};
-
-        info.add(dato1);
-        info.add(dato2);
-        info.add(dato3);
-        info.add(dato4);
-        
-        for (Object []informacion : info){
+        for (Object []informacion : estudiantes){
             modelo.addRow(informacion);
         }
         
@@ -63,6 +53,7 @@ public class Estudiantes extends javax.swing.JPanel {
         cargarDatosEstudiantes();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -113,10 +104,10 @@ public class Estudiantes extends javax.swing.JPanel {
         int seleccionar=tablaDatosEstudiantes.rowAtPoint(evt.getPoint());
         //EditWindow editWindow = new EditWindow();
         
-        contacto.setNombre(String.valueOf(tablaDatosEstudiantes.getValueAt(seleccionar,1)));
+        contactoEstudiantes.setNombre(String.valueOf(tablaDatosEstudiantes.getValueAt(seleccionar,1)));
         //contacto.setApellidos(String.valueOf(tabladatosProfesores.getValueAt(seleccionar,2)));
         
-        String nombreContacto = contacto.getNombre();
+        String nombreContacto = contactoEstudiantes.getNombre();
         //String apellidosContacto = contacto.getApellidos();
         
         System.out.println("Nombre: " + nombreContacto);
