@@ -175,7 +175,7 @@ public class Todos extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable tablaDatosGeneral;
+    public static javax.swing.JTable tablaDatosGeneral;
     private javax.swing.JScrollPane tablaGeneral;
     // End of variables declaration//GEN-END:variables
 }

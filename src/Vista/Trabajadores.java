@@ -174,7 +174,7 @@ public class Trabajadores extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable tablaDatosTrabajadores;
-    private javax.swing.JScrollPane tablaTrabajadores;
+    public static javax.swing.JTable tablaDatosTrabajadores;
+    public static javax.swing.JScrollPane tablaTrabajadores;
     // End of variables declaration//GEN-END:variables
 }

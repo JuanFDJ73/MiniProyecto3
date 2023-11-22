@@ -179,7 +179,7 @@ public class Profesores extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane TablaProfesores;
-    public javax.swing.JTable tablaDatosProfesores;
+    public javax.swing.JScrollPane TablaProfesores;
+    public static javax.swing.JTable tablaDatosProfesores;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,12 +1,20 @@
 
 package Vista;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
+import Vista.Estudiantes;
+import Vista.Trabajadores;
+import Vista.Profesores;
+import Vista.Todos;
+import javax.swing.table.DefaultTableModel;
 
 public class AddWindow extends javax.swing.JFrame {
 
-
+    
+    
+    private ArrayList<Object[]> info;
+    
     public AddWindow() {
         initComponents();
     }
@@ -311,6 +319,11 @@ public class AddWindow extends javax.swing.JFrame {
 
     private void AñadirAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AñadirAgregarMouseClicked
         
+        DefaultTableModel modeloEstudiante = (DefaultTableModel) Estudiantes.tablaDatosEstudiantes.getModel();
+        DefaultTableModel modeloProfesores = (DefaultTableModel) Profesores.tablaDatosProfesores.getModel();
+        DefaultTableModel modeloTrabajadores = (DefaultTableModel) Trabajadores.tablaDatosTrabajadores.getModel();
+        
+        Object[] nuevaFila = new Object[12];
         
         // Verificar que los campos obligatorios estén llenos
         if (AñadirNombre.getText().isEmpty() || AñadirDireccion.getText().isEmpty() ||
@@ -369,8 +382,56 @@ public class AddWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese solo números en los campos de día, mes y año.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
+        
+        nuevaFila[0] = AñadirID.getText();
+        nuevaFila[1] = AñadirNombre.getText();
+        nuevaFila[2] = AñadirApellidos.getText();
+        nuevaFila[3] = AñadirDireccion.getText();
+        nuevaFila[4] = AñadirBarrio.getText();
+        nuevaFila[5] = AñadirCiudad.getText();
+        nuevaFila[6] = AñadirNumero.getText();
+        nuevaFila[7] = AñadirTipo.getSelectedItem().toString();
+        nuevaFila[8] = AñadirEstamento.getSelectedItem().toString();
+        nuevaFila[9] = AñadirDia.getText();
+        nuevaFila[10] = AñadirMes.getText();
+        nuevaFila[11] = AñadirAño.getText();
+        
+        // Agregar los valores al array
+        info.add(nuevaFila);
+        
+            switch (AñadirEstamento.getSelectedItem().toString()) {
+        case "Estudiante":
+            modeloEstudiante.addRow(nuevaFila);
+            break;
+        case "Profesor":
+            modeloProfesores.addRow(nuevaFila);
+            break;
+        case "Trabajador":
+            modeloTrabajadores.addRow(nuevaFila);
+            break;
+        }
+
+
+
+        // Limpiar los campos después de agregar la fila
+        limpiarCampos();
     }//GEN-LAST:event_AñadirAgregarMouseClicked
 
+    private void limpiarCampos() {
+        AñadirID.setText("");
+        AñadirNombre.setText("");
+        AñadirApellidos.setText("");
+        AñadirDireccion.setText("");
+        AñadirBarrio.setText("");
+        AñadirCiudad.setText("");
+        AñadirNumero.setText("");
+        AñadirTipo.setSelectedIndex(0);
+        AñadirEstamento.setSelectedIndex(0);
+        AñadirDia.setText("");
+        AñadirMes.setText("");
+        AñadirAño.setText("");
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
