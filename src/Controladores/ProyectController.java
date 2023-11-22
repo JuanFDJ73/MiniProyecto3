@@ -65,7 +65,5 @@ public class ProyectController {
     
     
     
-    private void actualizarVista() {
-        view.setTareas(model.getTareas());
-    }
+
 }

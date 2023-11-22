@@ -4,7 +4,7 @@
  */
 package Vista;
 
-import Modelos.ContactsList;
+import Modelos.Contact;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,8 +13,10 @@ import javax.swing.table.DefaultTableModel;
  * @author Usuario
  */
 public class Todos extends javax.swing.JPanel {
-ContactsList contacto = new ContactsList();
+    Contact contacto = new Contact();
     DefaultTableModel modelo=new DefaultTableModel(); 
+    
+    ArrayList contactos = new ArrayList();
 
     /**
      * Creates new form Trabajadores

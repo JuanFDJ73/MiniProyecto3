@@ -14,7 +14,7 @@ import Modelos.Contact;
  * @author Usuario
  */
 public class Estudiantes extends javax.swing.JPanel {
-    ArrayList contactoEstudiantes = new ArrayList();
+    Contact contactoEstudiantes = new Contact();
     DefaultTableModel modelo=new DefaultTableModel();
     
     

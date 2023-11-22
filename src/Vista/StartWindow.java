@@ -251,6 +251,7 @@ public class StartWindow extends javax.swing.JFrame {
             System.out.println("Botón Editar seleccionado");
 
             p1.habilitarEdicion(true);
+            
 
         } else {
             System.out.println("Botón Editar deseleccionado");
