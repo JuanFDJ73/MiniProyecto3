@@ -2,16 +2,16 @@
 package Vista;
 
 
-import Modelos.Contact;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
-import Modelos.ContactsList.Editar;
+import Modelos.ContactsList;
+import static Vista.StartWindow.Editar;
 
 
 public class Profesores extends javax.swing.JPanel {
     
     private ArrayList<Object[]> info;
-    Contact contacto = new Contact();
+    ContactsList contacto = new ContactsList();
     DefaultTableModel modelo=new DefaultTableModel();
     
     public ArrayList<Object[]> obtenerInformacion() {
@@ -35,7 +35,7 @@ public class Profesores extends javax.swing.JPanel {
         modelo.addColumn("Año");
         tablaDatosProfesores.setModel(modelo);
         
-        
+        ArrayList<Object[]>info=new ArrayList<Object[]>();
         
         
         Object[]dato1=new Object[]{"0","Juan","Duque","Cra 3","El diamante","Cali","0000000000","Movil","Profesor",10,7,2002};
@@ -144,12 +144,12 @@ public class Profesores extends javax.swing.JPanel {
             String direccionContacto = contacto.getDireccion();
             String barrioContacto = contacto.getBarrio();
             String ciudadContacto = contacto.getCiudad();
-            String numeroContacto = contacto.getNumero();
+            int numeroContacto = contacto.getNumero();
             String tipoContacto = contacto.getTipo();
             String EstamentoContacto = contacto.getEstamento();
-            String DiaContacto = contacto.getDia();
-            String MesContacto = contacto.getMes();
-            String AñoContacto = contacto.getAño();
+            int DiaContacto = contacto.getDia();
+            int MesContacto = contacto.getMes();
+            int AñoContacto = contacto.getAño();
 
             System.out.println("ID: " + IDContacto);
             System.out.println("Nombre: " + nombreContacto);

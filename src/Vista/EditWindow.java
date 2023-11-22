@@ -197,6 +197,8 @@ public class EditWindow extends javax.swing.JFrame {
         EditTipo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         EditTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celular", "Telefono", "Fax" }));
 
+        EditDireccion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(

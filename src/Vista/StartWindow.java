@@ -13,7 +13,6 @@ public class StartWindow extends javax.swing.JFrame {
     public StartWindow() {
         initComponents();
 
-        
         p1 = new Profesores();
         p1.setSize(660,314);
         p1.setLocation(10,50);
@@ -86,6 +85,12 @@ public class StartWindow extends javax.swing.JFrame {
             }
         });
 
+        Tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout TablaLayout = new javax.swing.GroupLayout(Tabla);
         Tabla.setLayout(TablaLayout);
         TablaLayout.setHorizontalGroup(
@@ -132,12 +137,13 @@ public class StartWindow extends javax.swing.JFrame {
                                 .addComponent(Todos, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(Tabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
+                        .addGap(113, 113, 113)
                         .addComponent(Añadir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(121, 121, 121)
-                        .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(64, 64, 64)
+                        .addComponent(Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
@@ -235,6 +241,22 @@ public class StartWindow extends javax.swing.JFrame {
 
     }//GEN-LAST:event_TodosActionPerformed
 
+    private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
+        
+        if (Editar.isSelected()) {
+            System.out.println("Botón Editar seleccionado");
+            
+            p1.habilitarEdicion(true);    
+     
+        } else {
+            System.out.println("Botón Editar deseleccionado");
+            
+            p1.habilitarEdicion(false);
+            
+        }
+        
+    }//GEN-LAST:event_EditarActionPerformed
+
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
         
         DeleteWindow wea = new DeleteWindow();
@@ -245,22 +267,11 @@ public class StartWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_EliminarActionPerformed
 
-    private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
-
-        if (Editar.isSelected()) {
-            System.out.println("Botón Editar seleccionado");
-
-            p1.habilitarEdicion(true);
-            
-
-        } else {
-            System.out.println("Botón Editar deseleccionado");
-
-            p1.habilitarEdicion(false);
-
-        }
-
-    }//GEN-LAST:event_EditarActionPerformed
+    private void TablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMouseClicked
+        
+        this.dispose();
+        
+    }//GEN-LAST:event_TablaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -300,7 +311,7 @@ public class StartWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton Alumnos;
     public javax.swing.JButton Añadir;
-    private javax.swing.JToggleButton Editar;
+    public static javax.swing.JToggleButton Editar;
     public static javax.swing.JToggleButton Eliminar;
     public javax.swing.JButton Profesores;
     public javax.swing.JPanel Tabla;
